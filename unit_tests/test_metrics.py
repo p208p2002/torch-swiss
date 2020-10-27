@@ -1,7 +1,6 @@
 import unittest
 import torch
 import os,sys
-sys.path.append('./')
 import numpy as np
 from torch_swiss.metrics import convert_classification_output_to_predicts
 from torch_swiss.metrics import compute_accuracy, compute_precision, compute_recall, compute_f1
