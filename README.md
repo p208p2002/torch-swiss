@@ -5,3 +5,8 @@
     <br>
     Toolkit for PyTorch like a Swiss Knife
 <p>
+
+## Install
+```bash
+pip install -U git+https://github.com/p208p2002/torch-swiss
+```
