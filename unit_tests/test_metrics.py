@@ -12,7 +12,6 @@ class TestMetrics(unittest.TestCase):
         output = torch.from_numpy(output)
         label = np.array([2,0,1])
         predicts = convert_classification_output_to_predicts(output)
-        predicts = predicts.numpy()
         self.assertEqual(str(label),str(predicts))
 
     def test_acc(self):
