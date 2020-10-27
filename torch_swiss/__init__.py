@@ -3,11 +3,6 @@ import torch.nn as nn
 from sklearn.metrics import confusion_matrix
 import os
 
-def compute_accuracy(y_pred, y_target):
-    _, y_pred_indices = y_pred.max(dim=1)
-    n_correct = torch.eq(y_pred_indices, y_target).sum().item()
-    return n_correct / len(y_pred_indices) * 100
-
 def split_dataset(full_dataset,split_rate = 0.8):
     train_size = int(split_rate * len(full_dataset))
     test_size = len(full_dataset) - train_size
