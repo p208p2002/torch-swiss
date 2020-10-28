@@ -1,18 +1,19 @@
-from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
+from sklearn.metrics import precision_score as _precision_score, recall_score as _recall_score, f1_score as _f1_score, accuracy_score as _accuracy_score
+from sklearn.metrics import matthews_corrcoef
 import torch
 
 def convert_classification_output_to_predicts(output):
     _, y_pred_indices = output.max(dim=1)
     return y_pred_indices.cpu().numpy()
 
-def compute_accuracy(y_pred, y_true):
-    return accuracy_score(y_true, y_pred) * 100
+def accuracy_score(*s_args,**p_args):
+    return _accuracy_score(*s_args,**p_args)
 
-def compute_precision(y_pred, y_true):
-    return precision_score(y_true, y_pred,average='macro') * 100
+def precision_score(*s_args,**p_args):
+    return _precision_score(*s_args,average='macro',**p_args)
 
-def compute_recall(y_pred, y_true):
-    return recall_score(y_true, y_pred,average='macro') * 100
+def recall_score(*s_args,**p_args):
+    return _recall_score(*s_args,average='macro',**p_args)
 
-def compute_f1(y_pred, y_true):
-    return f1_score(y_true, y_pred,average='macro') * 100
+def f1_score(*s_args,**p_args):
+    return _f1_score(*s_args,average='macro',**p_args)
