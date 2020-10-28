@@ -25,9 +25,6 @@ def make_confusion_matrix(y_true,y_pred):
 class LogRecorder():
     def __init__(self):
         self.i = 0
-        self.running_f1 = 0.0
-        self.running_prec = 0.0
-        self.running_recall = 0.0
         self.running_acc = 0.0
         self.running_loss = 0.0
         self._y_trues = []
@@ -36,12 +33,9 @@ class LogRecorder():
     def reset(self):
         self.__init__()
 
-    def add_log(self,batch_acc=0.0,batch_loss=0.0,batch_prec=0.0,batch_recall=0.0,batch_f1=0.0):
+    def add_log(self,batch_acc=0.0,batch_loss=0.0):
         self.running_acc += (batch_acc - self.running_acc)/(self.i+1)
         self.running_loss += (batch_loss - self.running_loss)/(self.i+1)
-        self.running_prec += (batch_prec - self.running_prec)/(self.i+1)
-        self.running_recall += (batch_recall - self.running_recall)/(self.i+1)
-        self.running_f1 += (batch_f1 - self.running_f1)/(self.i+1)
         self.i += 1
     
     def save_predicts_and_trues(self,logits,label):
@@ -52,18 +46,6 @@ class LogRecorder():
         for y_p,y_t in zip(y_predicts,label):
             self._y_predicts.append(y_p.item())
             self._y_trues.append(y_t.item())
-    
-    @property
-    def f1(self):
-        return self.running_f1
-
-    @property
-    def recall(self):
-        return self.running_recall
-
-    @property
-    def prec(self):
-        return self.running_prec
     
     @property
     def acc(self):
