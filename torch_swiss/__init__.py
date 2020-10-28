@@ -63,7 +63,6 @@ class ModelHolder():
         return self.model
     
     def __exit__(self,exc_type, exc_val, exc_tb):
-        del self.model
         if exc_type is KeyboardInterrupt:
             pass
 
