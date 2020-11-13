@@ -30,9 +30,13 @@ class TestTorchSwiss(unittest.TestCase):
     
     def test_logger(self):
         from torch_swiss.logger import LogRecorder,running_logger
-        LogRecorder()
         running_logger({"key1":0,"key2":"1"},title='test')
-    
+        rec_logger = LogRecorder()
+        rec_logger.add_log(100.0,100.0)
+        rec_logger.add_log(0.0,0.0)
+        self.assertEqual(rec_logger.acc,50.0)
+        self.assertEqual(rec_logger.loss,50.0)
+        
     def test_device(self):
         from torch_swiss.device import detect_device,auto_apply_device
         model = TestModel()

@@ -1,6 +1,5 @@
 import torch
 import torch.nn as nn
-from sklearn.metrics import confusion_matrix
 
 def convert_classification_output_to_predicts(output):
     _, y_pred_indices = output.max(dim=1)
@@ -11,6 +10,3 @@ def split_dataset(full_dataset,split_rate = 0.8):
     test_size = len(full_dataset) - train_size
     train_dataset, test_dataset = torch.utils.data.random_split(full_dataset, [train_size, test_size])
     return train_dataset, test_dataset
-
-def make_confusion_matrix(y_true,y_pred):
-    return confusion_matrix(y_true,y_pred)
