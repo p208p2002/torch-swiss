@@ -1,3 +1,5 @@
 *__pycache__*
 .coverage
 htmlcov
+.vscode
+.model_holder

@@ -1,5 +1,6 @@
+# python -m unittest unit_tests
 coverage run \
-    --omit *dist-packages*,*site-packages*,unit_tests* \
-    -m unittest unit_tests.test_metrics
+    --source torch_swiss/ \
+    -m unittest unit_tests
 
 coverage report -m

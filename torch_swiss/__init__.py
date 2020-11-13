@@ -3,6 +3,10 @@ import torch.nn as nn
 from sklearn.metrics import confusion_matrix
 import os
 
+def convert_classification_output_to_predicts(output):
+    _, y_pred_indices = output.max(dim=1)
+    return y_pred_indices.cpu().numpy()
+
 def split_dataset(full_dataset,split_rate = 0.8):
     train_size = int(split_rate * len(full_dataset))
     test_size = len(full_dataset) - train_size
@@ -54,17 +58,6 @@ class LogRecorder():
     @property
     def loss(self):
         return self.running_loss
-
-class ModelHolder():
-    def __init__(self,model):
-        self.model = model
-        
-    def __enter__(self):
-        return self.model
-    
-    def __exit__(self,exc_type, exc_val, exc_tb):
-        if exc_type is KeyboardInterrupt:
-            pass
 
 def detect_device():
     return torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
