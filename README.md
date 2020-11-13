@@ -5,6 +5,11 @@
     <br>
     Toolkit for PyTorch like a Swiss Knife
 <p>
+<p align="center">
+<a href="https://codecov.io/gh/p208p2002/torch-swiss">
+  <img src="https://codecov.io/gh/p208p2002/torch-swiss/branch/main/graph/badge.svg" />
+</a>
+</p>
 
 ## Install
 ```bash
