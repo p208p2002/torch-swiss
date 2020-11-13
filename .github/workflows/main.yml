@@ -21,4 +21,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.6' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+      - run: |
+          pip install .
+          pip install coverage
+          sh run_unit_tests.sh 
       - run: bash <(curl -s https://codecov.io/bash) -t ${{secrets.CODECOV_TOKEN}}
