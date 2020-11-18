@@ -28,4 +28,5 @@ jobs:
           pip install .
           pip install coverage
           sh run_unit_tests.sh 
-      - run: bash <(curl -s https://codecov.io/bash) -t ${{secrets.CODECOV_TOKEN}}
+      - name: Codecov
+        uses: codecov/codecov-action@v1.0.14
