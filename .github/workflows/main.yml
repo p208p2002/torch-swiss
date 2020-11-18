@@ -27,6 +27,7 @@ jobs:
       - run: |
           pip install .
           pip install coverage
+          pip inttall transformers
           sh run_unit_tests.sh 
       - name: Codecov
         uses: codecov/codecov-action@v1.0.14
