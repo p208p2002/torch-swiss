@@ -40,3 +40,11 @@ def count_word_piece_padding(tokenizer,word_tokens,item_start,item_end=None,init
 
         padding += (token_word_piece_length - 1)
     assert False,'padding match error'
+
+def balance_prob(all_gold_lablel_ids):
+    unique_label_ids = list(set(all_gold_lablel_ids))
+    _ws = []
+    for label_id in range(len(unique_label_ids)):        
+        label_id_count = all_gold_lablel_ids.count(label_id)
+        _ws.append(1./label_id_count)
+    return _ws
