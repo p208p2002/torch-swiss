@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-import os,sys,time
+import os,sys
 
 def convert_classification_output_to_predicts(output):
     _, y_pred_indices = output.max(dim=1)
@@ -57,4 +57,4 @@ def balance_prob(all_gold_lablel_ids):
 def save_sys_argv(save_path='./',save_file_name='agrv.log'):
     assert os.path.isdir(save_path), 'save_path is not dir'
     with open(os.path.join(save_path,save_file_name),'a') as f:
-        f.write(time.ctime()+'\t$ '+' '.join(sys.argv)+'\n')
+        f.write(' '.join(sys.argv)+'\n')
