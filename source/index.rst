@@ -5,6 +5,15 @@
 
 Welcome to torch-swiss's documentation!
 =======================================
+
+Install
+------
+.. code:: bash
+
+   pip install -U git+https://github.com/p208p2002/torch-swiss
+
+Modules
+------
 .. toctree::
    :maxdepth: 2
    
