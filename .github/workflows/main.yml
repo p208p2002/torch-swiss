@@ -27,15 +27,17 @@ jobs:
       - run: |
           pip install .
           pip install -Ur dev-requirements.txt
-          sh run_unit_tests.sh 
+          sh run_unit_tests.sh
+      
       - name: Codecov
         uses: codecov/codecov-action@v1.0.14
       
-      - name: Build document and Deploy
-      - run: |
-          sh build_document.sh          
-      - uses: peaceiris/actions-gh-pages@v3
+      - name: Build document
+        run: |
+          sh build_document.sh
+      
+      - name: Deploy document
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.ACCESS_TOKEN }}
           publish_dir: ./build
-          publish_branch: master
