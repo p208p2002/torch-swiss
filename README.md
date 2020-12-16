@@ -15,3 +15,6 @@
 ```bash
 pip install -U git+https://github.com/p208p2002/torch-swiss
 ```
+
+## Document
+[Torch Swiss's document](https://p208p2002.github.io/torch-swiss/)

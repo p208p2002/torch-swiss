@@ -6,6 +6,8 @@
 Welcome to torch-swiss's documentation!
 =======================================
 
+`GitHub <https://github.com/p208p2002/torch-swiss/>`_
+
 Install
 ------
 .. code:: bash
