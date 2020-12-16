@@ -167,6 +167,32 @@ with ModelHolder(model) as (model_holder,model):
 </dd>
 </dl>
 <dl class="py method">
+<dt id="torch_swiss.model.ModelHolder.__enter__">
+<code class="sig-name descname">__enter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#torch_swiss.model.ModelHolder.__enter__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>self,self.model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="torch_swiss.model.ModelHolder.__exit__">
+<code class="sig-name descname">__exit__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">exc_type</span></em>, <em class="sig-param"><span class="n">exc_val</span></em>, <em class="sig-param"><span class="n">exc_tb</span></em><span class="sig-paren">)</span><a class="headerlink" href="#torch_swiss.model.ModelHolder.__exit__" title="Permalink to this definition">¶</a></dt>
+<dd><p>auto save checkpoint while exit ModelHolder</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="torch_swiss.model.ModelHolder.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#torch_swiss.model.ModelHolder.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model</strong> (<em>class&lt;torch.nn.Module&gt;</em>) – model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="torch_swiss.model.ModelHolder.save_checkpoint">
 <code class="sig-name descname">save_checkpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">save_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#torch_swiss.model.ModelHolder.save_checkpoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>save checkpoint manual</p>
