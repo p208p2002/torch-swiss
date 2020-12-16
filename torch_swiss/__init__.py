@@ -58,3 +58,8 @@ def save_sys_argv(save_path='./',save_file_name='agrv.log'):
     assert os.path.isdir(save_path), 'save_path is not dir'
     with open(os.path.join(save_path,save_file_name),'a') as f:
         f.write(' '.join(sys.argv)+'\n')
+        
+def set_model_requires_grad(model,should_requires_grad):
+    model = model.module if hasattr(model, "module") else model
+    for param in model.parameters():
+        param.requires_grad = should_requires_grad
