@@ -2,7 +2,8 @@ import torch
 
 def running_logger(log_dict,title=None,end='\r'):
     """
-    running_logger({"batch":i+1, "loss":"%3.5f"%test_log_recorder.loss, "acc":"%3.5f"%test_log_recorder.acc},'test')
+    Usage Example:
+        `running_logger({"batch":i+1, "loss":"%3.5f"%test_log_recorder.loss, "acc":"%3.5f"%test_log_recorder.acc},'test')`
     """
     if title is not None:
         print(title,end=' ')

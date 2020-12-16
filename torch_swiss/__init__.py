@@ -34,8 +34,9 @@ def compute_word_piece_padding(tokenizer,word_tokens,item_start,item_end=None,in
         init_padding_count (int, optional): when you have special token like [cls] as first, you can set to 1
 
     Returns:
-        int: if only `item_start` given
-        tuple(int): if both `item_start` and `item_start` given
+        int or tuple(int): 
+            `item_start`, if only `item_start` given.\n
+            `item_start` and `item_start`, if both `item_start` and `item_start` given
     """
     entity_is_set = [False]*2
     padding = init_padding_count
