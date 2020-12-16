@@ -26,8 +26,16 @@ jobs:
           python-version: '3.6' # Version range or exact version of a Python version to use, using SemVer's version range syntax
       - run: |
           pip install .
-          pip install coverage
-          pip install transformers
+          pip install -Ur dev-requirements.txt
           sh run_unit_tests.sh 
       - name: Codecov
         uses: codecov/codecov-action@v1.0.14
+      
+      - name: Build document and Deploy
+      - run: |
+          sh build_document.sh          
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+          publish_dir: ./build
+          publish_branch: master
