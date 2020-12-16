@@ -6,19 +6,36 @@ def convert_classification_output_to_predicts(output):
     _, y_pred_indices = output.max(dim=1)
     return y_pred_indices.cpu().numpy()
 
-def split_dataset(full_dataset,split_rate = 0.8):
-    train_size = int(split_rate * len(full_dataset))
-    test_size = len(full_dataset) - train_size
-    train_dataset, test_dataset = torch.utils.data.random_split(full_dataset, [train_size, test_size])
+def split_dataset(dataset,split_rate = 0.8):
+    """
+    split dataset into two
+
+    Args:
+        dataset (class): pytorch dataset 
+        split_rate (float): first dataset size
+    
+    Returns:
+        tuple(class): train_dataset, test_dataset
+    """
+    train_size = int(split_rate * len(dataset))
+    test_size = len(dataset) - train_size
+    train_dataset, test_dataset = torch.utils.data.random_split(dataset, [train_size, test_size])
     return train_dataset, test_dataset
 
-def count_word_piece_padding(tokenizer,word_tokens,item_start,item_end=None,init_padding_count=0):
+def compute_word_piece_padding(tokenizer,word_tokens,item_start,item_end=None,init_padding_count=0):
     """
-    tokenizer: transformer tokenizer
-    word_tokens: word level tokens
-    item_start: item start position
-    item_end(optional): item end position
-    init_padding_count(optional): when you have special token like [cls] as first, you can set to 1
+    compute new word padding after doing word-piece
+
+    Args:
+        tokenizer (class): transformer tokenizer
+        word_tokens (list[str]): word level tokens
+        item_start (int): item start position
+        item_end (int, optional): item end position
+        init_padding_count (int, optional): when you have special token like [cls] as first, you can set to 1
+
+    Returns:
+        int: if only `item_start` given
+        tuple(int): if both `item_start` and `item_start` given
     """
     entity_is_set = [False]*2
     padding = init_padding_count
@@ -43,6 +60,15 @@ def count_word_piece_padding(tokenizer,word_tokens,item_start,item_end=None,init
     assert False,'padding match error'
 
 def balance_prob(all_gold_lablel_ids):
+    """
+    set balance probability to each label for process imlalance
+
+    Args:
+        all_gold_lablel_ids (list[int]): all gold_lablel ids
+    
+    Returns:
+        list[float]: each label probability
+    """
     unique_label_ids = list(set(all_gold_lablel_ids))    
     label_probs = []
     for label_id in range(len(unique_label_ids)):        

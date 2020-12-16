@@ -42,7 +42,3 @@ class LogRecorder():
     @property
     def loss(self):
         return self.running_loss
-    
-# def main():
-#     LogRecorder()
-#     running_logger({"key1":0,"key2":"1"},title='test')
