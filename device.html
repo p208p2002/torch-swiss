@@ -157,12 +157,33 @@
 <dl class="py function">
 <dt id="torch_swiss.device.auto_apply_device">
 <code class="sig-prename descclassname">torch_swiss.device.</code><code class="sig-name descname">auto_apply_device</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#torch_swiss.device.auto_apply_device" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>auto apply model into muilt-gpus</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model</strong> (<em>class&lt;torch.nn.Module&gt;</em>) – pytorch model</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pytorch model(into nn.DataParallel)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>model (class&lt;torch.nn.Module&gt;)</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="torch_swiss.device.detect_device">
 <code class="sig-prename descclassname">torch_swiss.device.</code><code class="sig-name descname">detect_device</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#torch_swiss.device.detect_device" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>detect cuda available or not</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>torch device</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>class &lt;torch.device&gt;</p>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 

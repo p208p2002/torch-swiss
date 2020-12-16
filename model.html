@@ -156,10 +156,26 @@
 <dl class="py class">
 <dt id="torch_swiss.model.ModelHolder">
 <em class="property">class </em><code class="sig-prename descclassname">torch_swiss.model.</code><code class="sig-name descname">ModelHolder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#torch_swiss.model.ModelHolder" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="py method">
+<dd><p><cite>ModelHolder</cite> is a model manager.</p>
+<p>You can manual save model by using <cite>self.save_checkpoint</cite>,</p>
+<p>and <cite>ModelHolder</cite> also auto save model while the end of <cite>ModelHolder</cite>.</p>
+<p>All save model will store under <cite>./.model_holder</cite>.</p>
+<dl class="simple">
+<dt>Usage Example:</dt><dd><p>`
+with ModelHolder(model) as (model_holder,model):
+`</p>
+</dd>
+</dl>
+<dl class="py method">
 <dt id="torch_swiss.model.ModelHolder.save_checkpoint">
 <code class="sig-name descname">save_checkpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">save_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#torch_swiss.model.ModelHolder.save_checkpoint" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>save checkpoint manual</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>save_name</strong> (<em>str</em>) – name to save, model will store under .model_holder</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
