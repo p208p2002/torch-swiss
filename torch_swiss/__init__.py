@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-import os,sys
+import os,sys,time
 
 def convert_classification_output_to_predicts(output):
     _, y_pred_indices = output.max(dim=1)
@@ -84,7 +84,7 @@ def balance_prob(all_gold_lablel_ids):
 def save_sys_argv(save_path='./',save_name='args.log'):
     os.makedirs(os.path.join(save_path),exist_ok=True)
     with open(os.path.join(save_path,save_name),'a') as f:
-        f.write(time.ctime()+'\t$ '+' '.join(sys.argv)+'\n')
+        f.write(time.ctime()+'\t '+' '.join(sys.argv)+'\n')
         
 def set_model_requires_grad(model,should_requires_grad):
     model = model.module if hasattr(model, "module") else model
