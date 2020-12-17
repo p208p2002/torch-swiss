@@ -88,12 +88,25 @@ def save_sys_argv(save_path='./',save_name='args.log'):
     Args:
         save_path (str): path to save
         save_name (str): log file's name
+    
+    Returns:
+        None
     """
     os.makedirs(os.path.join(save_path),exist_ok=True)
     with open(os.path.join(save_path,save_name),'a') as f:
         f.write(time.ctime()+'\t '+' '.join(sys.argv)+'\n')
         
 def set_model_requires_grad(model,should_requires_grad):
+    """
+    set model.parameters should requires gradient or not
+
+    Args:
+        model (class<torch.nn.Module>): pytorch model
+        should_requires_grad (bool): `True` or `False`
+    
+    Returns:
+        None
+    """
     model = model.module if hasattr(model, "module") else model
     for param in model.parameters():
         param.requires_grad = should_requires_grad
