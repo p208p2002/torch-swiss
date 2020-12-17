@@ -84,7 +84,7 @@ def balance_prob(all_gold_lablel_ids):
 def save_sys_argv(save_path='./',save_file_name='agrv.log'):
     assert os.path.isdir(save_path), 'save_path is not dir'
     with open(os.path.join(save_path,save_file_name),'a') as f:
-        f.write(' '.join(sys.argv)+'\n')
+        f.write(time.ctime()+'\t$ '+' '.join(sys.argv)+'\n')
         
 def set_model_requires_grad(model,should_requires_grad):
     model = model.module if hasattr(model, "module") else model
