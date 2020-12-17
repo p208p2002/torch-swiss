@@ -34,7 +34,7 @@ class ModelHolder():
             os.mkdir('.model_holder')
 
         if save_name is None:
-            save_name = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S.bin")
+            save_name = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S.bin")
         model_to_save = self.model.module if hasattr(self.model, "module") else self.model
         torch.save(model_to_save, '.model_holder/%s'%save_name)
     

@@ -2,10 +2,6 @@ import torch
 import torch.nn as nn
 import os,sys,time
 
-def convert_classification_output_to_predicts(output):
-    _, y_pred_indices = output.max(dim=1)
-    return y_pred_indices.cpu().numpy()
-
 def split_dataset(dataset,split_rate = 0.8):
     """
     split dataset into two
