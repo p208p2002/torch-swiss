@@ -82,6 +82,13 @@ def balance_prob(all_gold_lablel_ids):
     return dataset_element_weights
 
 def save_sys_argv(save_path='./',save_name='args.log'):
+    """
+    save sys argv "if has"
+
+    Args:
+        save_path (str): path to save
+        save_name (str): log file's name
+    """
     os.makedirs(os.path.join(save_path),exist_ok=True)
     with open(os.path.join(save_path,save_name),'a') as f:
         f.write(time.ctime()+'\t '+' '.join(sys.argv)+'\n')
