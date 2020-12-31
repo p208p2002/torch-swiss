@@ -47,7 +47,7 @@ def compute_word_piece_padding(tokenizer,word_tokens,item_start,item_end=None,in
                 return item_start
         
         if(i == item_end and entity_is_set[1] == False):
-            item_end+=padding
+            item_end+=(padding+token_word_piece_length-1)
             entity_is_set[1] = True
         
         if(entity_is_set.count(True) == 2):

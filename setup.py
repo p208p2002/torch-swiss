@@ -4,9 +4,14 @@ import os
 with open("README.md", "r", encoding='utf-8') as fh:
     long_description = fh.read()
 
+try:
+    lastest_git_tag = list(os.popen("git tag"))[0].split()[-1]
+except:
+    lastest_git_tag = 'latest'
+
 setup(
     name="torch_swiss",
-    version="0.0.1",
+    version=lastest_git_tag,
     author='Philip Huang',
     author_email="p208p2002@gmail.com",
     description="Toolkit for PyTorch like a Swiss Knife",
