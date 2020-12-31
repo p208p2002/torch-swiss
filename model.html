@@ -154,7 +154,7 @@
 <span id="torch-swiss-model"></span><h1>torch_swiss.model<a class="headerlink" href="#module-torch_swiss.model" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="torch_swiss.model.ModelHolder">
-<em class="property">class </em><code class="sig-prename descclassname">torch_swiss.model.</code><code class="sig-name descname">ModelHolder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#torch_swiss.model.ModelHolder" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">torch_swiss.model.</code><code class="sig-name descname">ModelHolder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">should_clear_up_tmp</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#torch_swiss.model.ModelHolder" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>ModelHolder</cite> is a model manager.</p>
 <p>You can manual save model by using <cite>self.save_checkpoint</cite>,</p>
 <p>and <cite>ModelHolder</cite> also auto save model while the end of <cite>ModelHolder</cite>.</p>
@@ -183,10 +183,13 @@ with ModelHolder(model) as (model_holder,model):
 
 <dl class="py method">
 <dt id="torch_swiss.model.ModelHolder.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#torch_swiss.model.ModelHolder.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">should_clear_up_tmp</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#torch_swiss.model.ModelHolder.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>model</strong> (<em>class&lt;torch.nn.Module&gt;</em>) – model</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>class&lt;torch.nn.Module&gt;</em>) – model</p></li>
+<li><p><strong>should_clear_up_tmp</strong> (<em>bool</em><em>, </em><em>optional</em>) – should clear up <cite>.model_holder</cite> dir or not</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
