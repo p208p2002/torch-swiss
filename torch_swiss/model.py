@@ -2,6 +2,7 @@
 import os
 import torch
 import datetime
+import shutil
 
 class ModelHolder():
     """
@@ -16,12 +17,15 @@ class ModelHolder():
         `
     """
 
-    def __init__(self,model):
+    def __init__(self,model,should_clear_up_tmp=True):
         """
         Args:
             model (class<torch.nn.Module>): model
+            should_clear_up_tmp (bool, optional): should clear up `.model_holder` dir or not
         """
         self.model = model
+        if should_clear_up_tmp:
+            shutil.rmtree('.model_holder',ignore_errors=True)
     
     def save_checkpoint(self,save_name = None):
         """
